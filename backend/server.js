@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import userRoutes from "./routes/userRoutes.js";
+// import postRoutes from "./routes/postRoutes.js";  
 
 dotenv.config();
 const app = express();
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 // ✅ Routes
 app.use("/api/users", userRoutes);
+// app.use("/api/posts", postRoutes);
 
 // ✅ MongoDB Connection
 mongoose
@@ -41,7 +43,7 @@ mongoose
 
 // ✅ Start Server
 const PORT = process.env.PORT || 3000;
-app.listen(5000, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(3000, () => console.log(`🚀 Server running on port ${PORT}`));
 
 mongoose.connection.once("open", async () => {
   try {
